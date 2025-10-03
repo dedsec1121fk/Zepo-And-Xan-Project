@@ -1,11 +1,19 @@
 /* Custom styles for the page */
+html, body {
+    /* Critical for non-scrollable single screen: set exact viewport dimensions and hide overflow */
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; 
+}
+
 body {
     font-family: 'Oswald', sans-serif;
     /* The image used for the page background */
     background-image: url('https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f64946aa020aa7703208/Assets/Images/Breaking%20ATH.jpg');
     
-    /* 'contain' ensures the ENTIRE image is visible, showing the background-color in the empty space. */
-    background-size: contain; 
+    /* Changed from 'contain' to 'cover' to ensure it fills the entire 100vh screen */
+    background-size: cover; 
     
     /* Centers the image */
     background-position: center;
@@ -13,14 +21,14 @@ body {
     /* Prevents the image from repeating */
     background-repeat: no-repeat;
     
-    /* Background remains fixed when scrolling */
+    /* Background remains fixed (though unnecessary with overflow: hidden) */
     background-attachment: fixed; 
     
     /* Fills empty space with the darker green color */
     background-color: #1B5E20; 
     color: #F5F5DC; 
     
-    /* Explicitly set minimum height to 100% of the viewport height for full-screen background */
+    /* Redundant with 'height: 100vh' above, but good for context */
     min-height: 100vh;
 }
 
