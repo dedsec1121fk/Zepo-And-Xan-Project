@@ -4,6 +4,7 @@ html, body {
     width: 100vw;
     height: 100vh;
     margin: 0;
+    /* This prevents scrolling on smaller screens (mobile) */
     overflow: hidden; 
 }
 
@@ -12,7 +13,7 @@ body {
     /* The image used for the page background */
     background-image: url('https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f64946aa020aa7703208/Assets/Images/Breaking%20ATH.jpg');
     
-    /* Changed from 'contain' to 'cover' to ensure it fills the entire 100vh screen */
+    /* Changed to 'cover' to ensure it fills the entire 100vh screen, as intended by the user's reference image */
     background-size: cover; 
     
     /* Centers the image */
@@ -21,15 +22,12 @@ body {
     /* Prevents the image from repeating */
     background-repeat: no-repeat;
     
-    /* Background remains fixed (though unnecessary with overflow: hidden) */
+    /* Background remains fixed */
     background-attachment: fixed; 
     
-    /* Fills empty space with the darker green color */
+    /* Fills empty space with the darker green color (only visible if the image doesn't cover all parts) */
     background-color: #1B5E20; 
     color: #F5F5DC; 
-    
-    /* Redundant with 'height: 100vh' above, but good for context */
-    min-height: 100vh;
 }
 
 /* Custom styles for the link buttons */
@@ -55,3 +53,83 @@ body {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 1);
     -webkit-text-stroke: 1px rgba(0,0,0,0.5); 
 }
+```eof
+
+## Corrected index.html
+
+I've changed the main container to use **flexbox (`flex flex-col h-screen`)** to vertically stack the Title, Links, and Footer. This ensures all three elements are positioned within the fixed viewport height (`h-screen`) without causing scroll overflow. The links are now **centered vertically and horizontally** using padding and margins, similar to the original look.
+
+```html:Updated Linktree HTML (Corrected):index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREAKING C*NTS</title>
+    
+    <meta property="og:title" content="BREAKING C*NTS" />
+    <meta property="og:description" content="Who let them cook?" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f64946aa020aa7703208/Assets/Images/Breaking%20ATH.jpg" />
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class=""> 
+    <div class="relative h-screen w-full max-w-7xl mx-auto pt-4 pb-2 md:pt-8 md:pb-4 flex flex-col justify-between">
+
+        <div class="w-full text-center flex-shrink-0 mt-4 md:mt-8">
+            <a href="https://www.ded-sec.space" target="_blank" rel="noopener noreferrer" class="inline-block no-underline text-white hover:text-yellow-400 transition duration-300">
+                <h1 class="title-text text-6xl md:text-8xl font-bold">BREAKING C*NTS</h1>
+            </a>
+        </div>
+
+        <div class="flex-grow flex items-center justify-center p-4 md:p-8">
+             <div class="flex justify-around w-full max-w-xl mx-auto">
+                 
+                 <div class="flex flex-col items-center p-4">
+                     <h2 class="title-text text-4xl md:text-6xl font-bold mb-4 text-center">Xan</h2>
+                     <div class="flex flex-col items-center space-y-6">
+                         <a href="https://www.instagram.com/xansolas?igsh=YjZpc20zMzU2eDk0" target="_blank" rel="noopener noreferrer"
+                            class="link-btn rounded-lg flex items-center justify-center">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                         <a href="https://open.spotify.com/artist/59re3o4NcXX0st8qpz9BYQ?si=cqSUkNekSbCeef4Z1edXwg" target="_blank" rel="noopener noreferrer"
+                            class="link-btn rounded-lg flex items-center justify-center">
+                             <i class="fab fa-spotify"></i>
+                         </a>
+                     </div>
+                 </div>
+
+                 <div class="flex flex-col items-center p-4">
+                     <h2 class="title-text text-4xl md:text-6xl font-bold mb-4 text-center">Zepo</h2>
+                     <div class="flex flex-col items-center space-y-6">
+                         <a href="https://www.instagram.com/zepo_ath?igsh=MWNkdWZ0c2lkN2M5ag==" target="_blank" rel="noopener noreferrer"
+                            class="link-btn rounded-lg flex items-center justify-center">
+                             <i class="fab fa-instagram"></i>
+                         </a>
+                         <a href="https://open.spotify.com/artist/7oUesx7XQ2rOFvKlpB0pJn?si=BN7uizJTTheiCnp89qnhcw" target="_blank" rel="noopener noreferrer"
+                            class="link-btn rounded-lg flex items-center justify-center">
+                             <i class="fab fa-spotify"></i>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+        </div>
+        
+        <footer class="w-full text-center py-2 text-xs text-white/70 tracking-wider font-thin flex-shrink-0">
+            © 2025 Made by dedsec1121fk.
+        </footer>
+    </div>
+</body>
+</html>
+```eof
+
+These changes ensure the following:
+* The title is a clickable link to **`www.ded-sec.space`**.
+* The **"Made by dedsec1121fk"** footer is at the bottom.
+* The entire page content is contained within a **non-scrollable, single viewport** (`100vh`) for both PC and mobile.
+* The background image uses `background-size: cover` to fill the screen completely.
