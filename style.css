@@ -1,0 +1,49 @@
+/* Custom styles for the page */
+body {
+    font-family: 'Oswald', sans-serif;
+    /* The image used for the page background */
+    background-image: url('https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f64946aa020aa7703208/Assets/Images/Breaking%20ATH.jpg');
+    
+    /* 'contain' ensures the ENTIRE image is visible, showing the background-color in the empty space. */
+    background-size: contain; 
+    
+    /* Centers the image */
+    background-position: center;
+    
+    /* Prevents the image from repeating */
+    background-repeat: no-repeat;
+    
+    /* Background remains fixed when scrolling */
+    background-attachment: fixed; 
+    
+    /* Fills empty space with the darker green color */
+    background-color: #1B5E20; 
+    color: #F5F5DC; 
+    
+    /* Explicitly set minimum height to 100% of the viewport height for full-screen background */
+    min-height: 100vh;
+}
+
+/* Custom styles for the link buttons */
+.link-btn {
+    background-color: rgba(251, 191, 36, 0.9); 
+    border: 2px solid rgba(217, 119, 6, 0.8); 
+    width: 56px;
+    height: 56px;
+    font-size: 1.8rem; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    color: #212121; 
+}
+
+.link-btn:hover {
+    background-color: rgba(252, 211, 77, 0.95); 
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Styling for the headings for better readability */
+.title-text {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 1);
+    -webkit-text-stroke: 1px rgba(0,0,0,0.5); 
+}
