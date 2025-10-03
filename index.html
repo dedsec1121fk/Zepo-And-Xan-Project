@@ -6,7 +6,7 @@
     <title>BREAKING C*NTS</title>
     <meta property="og:title" content="BREAKING C*NTS" />
     <meta property="og:description" content="Who let them cook?" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f64946aa020aa7703208/Assets/Images/Breaking%20ATH.jpg" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f6496aa020aa7703208/Assets/Images/Breaking%20ATH.jpg" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -18,15 +18,20 @@
         body {
             font-family: 'Oswald', sans-serif;
             /* The direct link to the raw image file on GitHub */
-            background-image: url('https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f6496aa020aa7703208/Assets/Images/Breaking%20ATH.jpg');
-            /* Ensures the entire image is visible without cropping */
-            background-size: contain;
+            background-image: url('https://raw.githubusercontent.com/dedsec1121fk/Zepo-And-Xan-Project/80ab253748a1652b0691f64946aa020aa7703208/Assets/Images/Breaking%20ATH.jpg');
+            
+            /* MODIFIED: Changed to 'cover' to ensure the image fills the entire background */
+            background-size: cover; 
+            
             /* Centers the image */
             background-position: center;
+            
             /* Prevents the image from repeating */
             background-repeat: no-repeat;
-            /* Keeps the background stationary on scroll */
-            background-attachment: fixed;
+            
+            /* MODIFIED: Changed to 'scroll' for better mobile support, or you can remove this line */
+            background-attachment: scroll; 
+            
             /* Fills empty space with the new darker green color */
             background-color: #1B5E20; /* Darker Breaking Bad Green */
             color: #F5F5DC; /* A beige color inspired by the Breaking Bad theme */
